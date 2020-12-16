@@ -1,0 +1,44 @@
+version: '3'
+services:
+        neo4j:
+                image: neo4j
+                container_name: neo4j
+                #                restart: always
+                ports:
+                        - 7474:7474
+                        - 7687:7687
+                volumes:
+                        - ./neo4j/data:/data
+                environment:
+                        NEO4J_AUTH: 'neo4j/a123456+'
+        
+        elasticsearch:
+                image: elasticsearch:7.10.1
+                container_name: elasticsearch
+                #                restart: always
+                ports:
+                        - 9200:9200
+                volumes:
+                        - ./elasticsearch-data:/usr/share/elasticsearch/data
+                        - ./elasticsearch-logs:/usr/share/elasticsearch/logs
+                environment:
+                        - xpack.security.enabled=false
+                        - discovery.type=single-node
+                ulimits:
+                        memlock:
+                                soft: -1
+                                hard: -1
+                        nofile:
+                                soft: 65536
+                                hard: 65536
+                         
+        kibana:                
+                image: kibana:7.10.1
+                container_name: kibana
+                #                restart: always
+                environment:
+                        - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+                ports:
+                        - 5601:5601
+                depends_on:
+                        - elasticsearch
