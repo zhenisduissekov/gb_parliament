@@ -18,15 +18,18 @@ def gb_parliament():
     appNeo.cleanNeo4j()
     appES.cleanES()
 
-    # reading file gb_parliament, create objects and insert objects to DBs
     with open(filename, 'r') as file:
         logging.info("Reading the file {a}".format(a=filename))
         for row in csv.DictReader(file):
             person = Person(row['id'], row['name'], row['sort_name'], row['email'], 'GB')  # creating objects
             organization = Organization(row['group_id'], row['group'])
             membership = Membership(row['id'], row['group_id'])
-            appNeo.insertNeo4j(person, organization, membership)
-            appES.insertES(person, organization, membership)
+            appNeo.insertPersonNeo4j(person)
+            appNeo.insertOrganizationNeo4j(organization)
+            appNeo.insertMembershipNeo4j(membership)
+            appES.insertPersonES(person)
+            appES.insertOrganizationES(organization)
+            appES.insertMembershipES(membership)
             counter += 1
 
     # close connections

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-import yaml
+from databases import Neo
+
 
 class Person:
 
@@ -23,5 +24,3 @@ class Membership:
     def __init__(self, m_id, m_group_id):
         self.id = m_id
         self.group_id = m_group_id
-
-

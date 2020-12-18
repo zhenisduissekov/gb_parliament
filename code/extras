@@ -16,5 +16,19 @@
 
 
     # es.indices.delete(index='cities', ignore=[400,404])
+crud
 
+API -> /parliament_recs/...
 
+GET -> .../parliament_recs/ <-- retrieve all objs
+GET -> .../parliament_recs/{id}/ <-- retrieve particular obj
+
+POST -> .../parliament_recs/ <--- create a new obj
+POST Body ->
+{
+ "name": "asdasd"
+}
+
+PUT -> .../parliament_recs/{id}/ <-- update obj by id
+
+delete ->
