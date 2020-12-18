@@ -11,9 +11,10 @@
      neo4j:4.2.1
 
 
-environment:
-      NEO4J_AUTH: 'neo4j/your_password'
 
-    delete everythin
-     MATCH (n)
-    DETACH DELETE n
+
+
+
+    # es.indices.delete(index='cities', ignore=[400,404])
+
+
