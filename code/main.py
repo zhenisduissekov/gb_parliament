@@ -17,8 +17,8 @@ def gb_parliament():
     appES = databases.ES()
     appNeo.cleanNeo4j()
     appES.cleanES()
-    # reading file gb_parliament, create objects and insert objects to DBs
 
+    # reading file gb_parliament, create objects and insert objects to DBs
     with open(filename, 'r') as file:
         logging.info("Reading the file {a}".format(a=filename))
         for row in csv.DictReader(file):

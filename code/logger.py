@@ -12,7 +12,7 @@ import colorlog
 def setup_console_log():
     log = logging.getLogger()  # root logger
     log.setLevel(logging.INFO)
-    format_str = "%(asctime)s - [%(filename)30s:%(lineno)3s - %(funcName)25s() ]- %(levelname)s - %(message)s"
+    format_str = "%(asctime)s - [%(filename)10s:%(lineno)3s - %(funcName)25s() ]- %(levelname)s - %(message)s"
     date_format = '%d-%b-%y %H-:%M:%S'
     cformat = '%(log_color)s' + format_str
     colors = {'DEBUG': 'green',

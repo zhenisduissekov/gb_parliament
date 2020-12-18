@@ -44,17 +44,13 @@ class Neo:
             session.run(query)
 
     def execute_neo_query(self, query, out):
-        print('QUERY ' + query + out)
         with self.driver.session() as session:
             result = session.run(query + out)
-            print('result\n\n')
-            print(result)
-            a = []
+            result_list = []
             for record in result:
                 rel = record[out]
-                a.append(rel)
-
-        return a
+                result_list.append(rel)
+        return result_list
 
 
 class ES:

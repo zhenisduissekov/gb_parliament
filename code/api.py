@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, jsonify
+from flask import Flask
 from databases import Neo, ES
+from Entities import Person
 
 app = Flask(__name__)
-
-courses = [{'name': 'algebra', 'code': 'ALG-101', 'course_id': '0'},
-           {'name': 'math', 'code': 'MATH-101', 'course_id': '1'},
-           {'name': 'english', 'code': 'ENG-101', 'course_id': '2'}]
 
 
 def execute_neo_query(en_query, en_output):
@@ -23,42 +20,60 @@ def execute_es_query(): # TODO: finish it
     return countPeople, countOrganizations
 
 
+# instead of index.html
 @app.route('/')
 def index():
-    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as count', 'count')
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
     countPeople, countOrganizations = execute_es_query()
     i_result = '<h1>Total records</h1><h2>Records in Neo4j db: ' + \
            str(i_result_neo) + '</h2>' + \
            '<h2>Records in Elasticsearch db: ' + \
            str(countPeople + countOrganizations) + ' (People = ' + str(countPeople) + '), (Organizations = '+ \
-           str(countOrganizations) + ')</h2>' + \
-           '<button onClick=>Отправить</button>'
+           str(countOrganizations) + ')</h2>'
     return i_result
 
 
-@app.route('/query', methods=["GET", "POST"])
-def get_query():
-    return {"variables": ["upper_25", "upper_50", "upper_75", "upper_90", "upper_95"]}
-
-
-@app.route('/records/<int:course_id>', methods=["GET"])
-def get_course(course_id):
-    return jsonify({'course': courses[course_id]})
-
-
-@app.route('/neo_records', methods=["GET"])
-def neo_records():
-    n_results = execute_neo_query('MATCH (a) RETURN ', 'a.name')
+# to output all records by fieldname such as: id, name, or email..
+@app.route('/neo_records/<string:fields>', methods=["GET"])
+def neo_records(fields):
+    n_results = execute_neo_query('MATCH (a) RETURN ', 'a.' + fields)
     result_str = ""
     for e in n_results:
-        result_str += '<p>' + e + '</p>'
+        if e != None:
+            result_str += '<p>' + e + '</p>'
     return result_str
 
 
-def put(self, id):
-    pass
+@app.route('/new_record', methods=['POST'])
+def create_record():
+    neo_person = Person('1', 'Zhenis', 'Programmer', 'email@email.com', 'KZ')
+    neo = Neo()
+    query_person = \
+        'MERGE (a:Person {{id: "{a1}",name: "{a2}", sort_name: "{a3}", email: "{a4}", nationality: "GB"}});' \
+            .format(a1=neo_person.id, a2=neo_person.name, a3=neo_person.alias, a4=neo_person.email)
+    with neo.driver.session() as session:
+        session.run(query_person)
+    return "Success"
 
-def delete(self, id)
+@app.route('/update_nationality_by_id/<int:i>', methods=['PUT'])
+def put(i):
+    neo = Neo()
+    query_person = 'MATCH (a:Person {{id: "{a1}"}}) SET a.nationality="American";'.format(a1=i)
+    with neo.driver.session() as session:
+        print(query_person)
+        session.run(query_person)
+    return "Updated successfully"
+
+
+@app.route('/delete_record/<int:i>', methods=['DELETE'])
+def delete(i):
+    neo = Neo()
+    query_person = 'MATCH (a:Person {{id: "{a1}"}}) DELETE a;'.format(a1=i)
+    with neo.driver.session() as session:
+        print(query_person)
+        session.run(query_person)
+    return "Deleted successfully"
+
 
 if __name__ == "__main__":
     app.run(debug=True)
