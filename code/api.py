@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from flask import Flask
-from databases import Neo, ES
+from databases import Neo, ES, load_configs
 from Entities import Person, Organization, Membership
 from flask import request
 import logger
+
+
 
 app = Flask(__name__)
 
@@ -25,13 +27,17 @@ def execute_es_query():
 # instead of index.html
 @app.route('/')
 def index():
-    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
-    countPeople, countOrganizations = execute_es_query()
-    i_result = '<h1>Total records</h1><h2>Records in Neo4j db: ' + \
+    try:
+        i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+        countPeople, countOrganizations = execute_es_query()
+        i_result = '<h1>Total records</h1><h2>Records in Neo4j db: ' + \
            str(i_result_neo) + '</h2>' + \
            '<h2>Records in Elasticsearch db: [' + \
            str(countPeople + countOrganizations) + ']</h2>'
-    return i_result
+        return i_result
+    except Exception as e:
+        logging.error(f'Error while creating new record. Details: {e}', exc_info=True)
+        return f"Fail {e} - need to upload data to DBs"
 
 
 # to output all records by fieldname such as: id, name, or email..
@@ -112,6 +118,7 @@ def insert_record():
         neo.close()
         return f"Fail {e}"
 
+
 # Delete by id or group_id depending on the collection
 @app.route('/parliament_records_neo', methods=['DELETE'])
 def delete():
@@ -148,4 +155,5 @@ def delete_es():
 
 if __name__ == "__main__":
     logging = logger.logger_config(with_file=True)
-    app.run(debug=True)
+    config = load_configs()
+    app.run(debug=False, host=config['kazdream']['url'], port=config['kazdream']['port'])

@@ -46,7 +46,7 @@ class Neo:
         with self.driver.session() as session:
             session.run(query_membership)
 
-        # Create person data into a Neo4j db using queries
+# Create person data into a Neo4j db using queries
         def createPersonNeo4j(self, neo_person):
             query_person = \
                 'CREATE (a:Person {{id: "{a1}",name: "{a2}", sort_name: "{a3}", email: "{a4}", nationality: "GB"}});' \
@@ -54,7 +54,7 @@ class Neo:
             with self.driver.session() as session:
                 session.run(query_person)
 
-        # Create organization data into a Neo4j db using queries
+# Create organization data into a Neo4j db using queries
         def createOrganizationNeo4j(self, neo_organization):
             query_organization = \
                 'CREATE (b:Organization {{group_id: "{a1}", name: "{a2}"}});' \
@@ -73,7 +73,6 @@ class Neo:
 # remove record
     def removeRecordNeo4j(self, document, keyword):
         query = f'MATCH (n:{document}{{id:"{keyword}"}}) DETACH DELETE n'
-        print(query)
         with self.driver.session() as session:
             session.run(query)
 
@@ -94,7 +93,7 @@ class Neo:
         return result_list
 
 
-#   to work with ElasticSearch DB: initialize connection, close it, insert data, clear from data
+# to work with ElasticSearch DB: initialize connection, close it, insert data, clear from data
 class ES:
 
     def __init__(self):
@@ -121,7 +120,6 @@ class ES:
         query = {"query": keyword}
         temp = self.driver.search(index=f_index, body=query, size=999)
         result = []
-        print(temp)
         for i in temp['hits']['hits']:
             result.append(i['_source']['name'])
         return result
@@ -132,13 +130,10 @@ class ES:
         self.driver.indices.delete(index='memberships', ignore=[400, 404])
 
     def count_recordsES(self):
-        res_people = self.driver.count(index='people', ignore=[400, 404])
+        res_people = self.driver.count(index='person', ignore=[400, 404])
         res_organizations = self.driver.count(index='organizations', ignore=[400, 404])
         return res_people['count'], res_organizations['count']
 
 # remove record
     def removeRecordES(self, index, doc):
-        print('hello')
-        print(doc)
         self.driver.indices.delete(index=index, body=doc)
-        print('bye')

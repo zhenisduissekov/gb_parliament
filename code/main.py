@@ -9,14 +9,14 @@ def gb_parliament():
     counter = 0
     filename = 'gb_parliament.csv'
     # setup logger
-    logging = logger.logger_config(with_file=True)
+    logging = logger.logger_config(with_file=False)
     logging.info('\n\nProgram starts..')
 
     # setup db connections and clean from previous data
-    appNeo = databases.Neo()
     appES = databases.ES()
+    appNeo = databases.Neo()
     appNeo.cleanNeo4j()
-    appES.cleanES()
+    # appES.cleanES()
 
     with open(filename, 'r') as file:
         logging.info("Reading the file {a}".format(a=filename))
@@ -39,4 +39,6 @@ def gb_parliament():
 
 
 if __name__ == "__main__":
+    counter = 0
     gb_parliament()
+

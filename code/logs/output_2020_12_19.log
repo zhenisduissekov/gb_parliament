@@ -1,0 +1,1920 @@
+19/12/2020 12:42:05 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 12:42:14 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 12:42:14 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 12:42:14] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 12:42:14 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 12:42:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+19/12/2020 12:42:52 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 12:42:55 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 12:42:55 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 12:42:55] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 12:42:55 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 12:42:55 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 12:42:55] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 12:44:32 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 15:13:46 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 15:13:57 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 15:14:06 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 15:14:06 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 15:14:06] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 15:14:07 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 15:14:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+19/12/2020 15:14:19 - [                       base.py:278 -          log_request_fail() ]- WARNING - POST http://elasticsearch:9200/person/_search?size=999 [status:N/A request:0.000s]
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 169, in _new_conn
+    conn = connection.create_connection(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/elasticsearch/connection/http_urllib3.py", line 245, in perform_request
+    response = self.pool.urlopen(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/util/retry.py", line 506, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/packages/six.py", line 735, in reraise
+    raise value
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 394, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 234, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/lib/python3.8/http/client.py", line 1255, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1301, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1250, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1010, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.8/http/client.py", line 950, in send
+    self.connect()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 200, in connect
+    conn = self._new_conn()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 181, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3c9cf2b340>: Failed to establish a new connection: [Errno -2] Name or service not known
+19/12/2020 15:14:19 - [                       base.py:278 -          log_request_fail() ]- WARNING - POST http://elasticsearch:9200/person/_search?size=999 [status:N/A request:0.001s]
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 169, in _new_conn
+    conn = connection.create_connection(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/elasticsearch/connection/http_urllib3.py", line 245, in perform_request
+    response = self.pool.urlopen(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/util/retry.py", line 506, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/packages/six.py", line 735, in reraise
+    raise value
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 394, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 234, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/lib/python3.8/http/client.py", line 1255, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1301, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1250, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1010, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.8/http/client.py", line 950, in send
+    self.connect()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 200, in connect
+    conn = self._new_conn()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 181, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3c9cf2b670>: Failed to establish a new connection: [Errno -2] Name or service not known
+19/12/2020 15:14:19 - [                       base.py:278 -          log_request_fail() ]- WARNING - POST http://elasticsearch:9200/person/_search?size=999 [status:N/A request:0.000s]
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 169, in _new_conn
+    conn = connection.create_connection(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/elasticsearch/connection/http_urllib3.py", line 245, in perform_request
+    response = self.pool.urlopen(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/util/retry.py", line 506, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/packages/six.py", line 735, in reraise
+    raise value
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 394, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 234, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/lib/python3.8/http/client.py", line 1255, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1301, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1250, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1010, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.8/http/client.py", line 950, in send
+    self.connect()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 200, in connect
+    conn = self._new_conn()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 181, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3c9cf2b700>: Failed to establish a new connection: [Errno -2] Name or service not known
+19/12/2020 15:14:19 - [                       base.py:278 -          log_request_fail() ]- WARNING - POST http://elasticsearch:9200/person/_search?size=999 [status:N/A request:0.000s]
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 169, in _new_conn
+    conn = connection.create_connection(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/elasticsearch/connection/http_urllib3.py", line 245, in perform_request
+    response = self.pool.urlopen(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/util/retry.py", line 506, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/packages/six.py", line 735, in reraise
+    raise value
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 394, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 234, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/lib/python3.8/http/client.py", line 1255, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1301, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1250, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1010, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.8/http/client.py", line 950, in send
+    self.connect()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 200, in connect
+    conn = self._new_conn()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 181, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3c9cf2b850>: Failed to establish a new connection: [Errno -2] Name or service not known
+19/12/2020 15:14:19 - [                        app.py:1891 -             log_exception() ]- ERROR - Exception on /parliament_records_es [GET]
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 169, in _new_conn
+    conn = connection.create_connection(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/elasticsearch/connection/http_urllib3.py", line 245, in perform_request
+    response = self.pool.urlopen(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/util/retry.py", line 506, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/packages/six.py", line 735, in reraise
+    raise value
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connectionpool.py", line 394, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 234, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/lib/python3.8/http/client.py", line 1255, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1301, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1250, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.8/http/client.py", line 1010, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.8/http/client.py", line 950, in send
+    self.connect()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 200, in connect
+    conn = self._new_conn()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/urllib3/connection.py", line 181, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3c9cf2b850>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 67, in parliament_records_es
+    n_results = es.findall()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 126, in findall
+    temp = self.driver.search(index=f_index, body=query, size=999)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/elasticsearch/client/utils.py", line 152, in _wrapped
+    return func(*args, params=params, headers=headers, **kwargs)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/elasticsearch/client/__init__.py", line 1658, in search
+    return self.transport.perform_request(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/elasticsearch/transport.py", line 390, in perform_request
+    raise e
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/elasticsearch/transport.py", line 358, in perform_request
+    status, headers_response, data = connection.perform_request(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/elasticsearch/connection/http_urllib3.py", line 258, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7f3c9cf2b850>: Failed to establish a new connection: [Errno -2] Name or service not known) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f3c9cf2b850>: Failed to establish a new connection: [Errno -2] Name or service not known)
+19/12/2020 15:14:19 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 15:14:19] "[35m[1mGET /parliament_records_es HTTP/1.1[0m" 500 -
+19/12/2020 15:16:08 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 15:16:15 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 15:16:15 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 15:16:15] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 15:16:17 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 15:16:17 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 15:16:17] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 15:16:32 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 15:16:34 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 15:16:34 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 15:16:34] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 15:17:01 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 15:17:01 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 15:17:01] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 15:17:05 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 15:17:05 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 15:17:05] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 15:17:05 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 15:17:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+19/12/2020 15:17:34 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 15:17:34 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 15:17:34] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:10:36 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:10:36 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:10:36] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:27:11 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 21:27:15 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:27:15 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:27:15] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:27:31 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:27:31 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:27:31] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:28:42 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:28:42 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:28:42] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:28:42 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:28:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+19/12/2020 21:28:48 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:28:48 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:28:48] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:29:15 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:29:15 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:29:15] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:29:16 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:29:16 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:29:16] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:29:17 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:29:17 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:29:17] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:29:17 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:29:17 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:29:17] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:29:17 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:29:17 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:29:17] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:29:17 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:29:17 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:29:17] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:29:18 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:29:18 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:29:18] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:29:51 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:29:51 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:29:51] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:29:58 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:29:58 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:29:58] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:29:59 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:29:59 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:29:59] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:30:02 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:30:02 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:30:02] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:30:05 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:30:05 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:30:05] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:30:06 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:30:06 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:30:06] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:40:48 - [                        api.py: 37 -                     index() ]- ERROR - Error while creating new record. Details: Cannot resolve address neo4j:7687
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 29, in index
+    i_result_neo = execute_neo_query('MATCH (n) RETURN count(n) as ', 'count')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:40:48 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:40:48] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 21:41:05 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:41:05] "[33mGET /gb_paliament_records_neo HTTP/1.1[0m" 404 -
+19/12/2020 21:41:16 - [                        app.py:1891 -             log_exception() ]- ERROR - Exception on /parliament_records_neo [GET]
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 55, in parliament_records
+    n_results = execute_neo_query('MATCH (a) RETURN ', 'a.name')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:41:16 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:41:16] "[35m[1mGET /parliament_records_neo HTTP/1.1[0m" 500 -
+19/12/2020 21:48:34 - [                        app.py:1891 -             log_exception() ]- ERROR - Exception on /parliament_records_neo [GET]
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 55, in parliament_records
+    n_results = execute_neo_query('MATCH (a) RETURN ', 'a.name')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:48:34 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:48:34] "[35m[1mGET /parliament_records_neo HTTP/1.1[0m" 500 -
+19/12/2020 21:48:37 - [                        app.py:1891 -             log_exception() ]- ERROR - Exception on /parliament_records_neo [GET]
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 55, in parliament_records
+    n_results = execute_neo_query('MATCH (a) RETURN ', 'a.name')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:48:37 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:48:37] "[35m[1mGET /parliament_records_neo HTTP/1.1[0m" 500 -
+19/12/2020 21:48:38 - [                        app.py:1891 -             log_exception() ]- ERROR - Exception on /parliament_records_neo [GET]
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 110, in _dns_resolve
+    info = getaddrinfo(address.host, address.port, family, SOCK_STREAM)
+  File "/usr/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 55, in parliament_records
+    n_results = execute_neo_query('MATCH (a) RETURN ', 'a.name')
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 12, in execute_neo_query
+    a = Neo()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 22, in __init__
+    self.driver = GraphDatabase.driver(neo_url, auth=(neo_user, neo_pwd))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 186, in driver
+    return cls.neo4j_driver(parsed.netloc, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 209, in neo4j_driver
+    return Neo4jDriver.open(*targets, auth=auth, routing_context=routing_context, **config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/__init__.py", line 410, in open
+    pool = Neo4jPool.open(*addresses, auth=auth, routing_context=routing_context, pool_config=pool_config, workspace_config=default_workspace_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 581, in open
+    pool.update_routing_table(database=workspace_config.database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 790, in update_routing_table
+    if self.update_routing_table_from(self.first_initial_routing_address, database=database):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 768, in update_routing_table_from
+    new_routing_table = self.fetch_routing_table(address=router, timeout=self.pool_config.connection_timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 731, in fetch_routing_table
+    new_routing_info = self.fetch_routing_info(address=address, timeout=timeout, database=database)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 698, in fetch_routing_info
+    with self._acquire(address, timeout) as cx:
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 413, in _acquire
+    connection = self.opener(address, timeout)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 576, in opener
+    return Bolt.open(addr, auth=auth, timeout=timeout, routing_context=routing_context, **pool_config)
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 193, in open
+    s, pool_config.protocol_version, handshake, data = connect(
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/io/__init__.py", line 1038, in connect
+    for resolved_address in Address(address).resolve(resolver=custom_resolver):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 146, in resolve
+    resolved.extend(self._dns_resolve(self, family))
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/venvUbuntu/lib/python3.8/site-packages/neo4j/addressing.py", line 112, in _dns_resolve
+    raise ValueError("Cannot resolve address {}".format(address))
+ValueError: Cannot resolve address neo4j:7687
+19/12/2020 21:48:38 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 21:48:38] "[35m[1mGET /parliament_records_neo HTTP/1.1[0m" 500 -
+19/12/2020 23:21:19 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 23:21:51 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/people/_count [status:404 request:0.006s]
+19/12/2020 23:21:52 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/organizations/_count [status:200 request:0.852s]
+19/12/2020 23:21:52 - [                        api.py: 39 -                     index() ]- ERROR - Error while creating new record. Details: 'count'
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 32, in index
+    countPeople, countOrganizations = execute_es_query()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 22, in execute_es_query
+    countPeople, countOrganizations = es.count_recordsES()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 135, in count_recordsES
+    return res_people['count'], res_organizations['count']
+KeyError: 'count'
+19/12/2020 23:21:52 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 23:21:52] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 23:21:52 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 23:21:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+19/12/2020 23:23:07 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 23:23:08 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/people/_count [status:404 request:0.001s]
+19/12/2020 23:23:08 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/organizations/_count [status:200 request:0.002s]
+19/12/2020 23:23:08 - [                        api.py: 42 -                     index() ]- ERROR - Error while creating new record. Details: 'count'
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 34, in index
+    countPeople, countOrganizations = execute_es_query()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 22, in execute_es_query
+    countPeople, countOrganizations = es.count_recordsES()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 135, in count_recordsES
+    return res_people['count'], res_organizations['count']
+KeyError: 'count'
+19/12/2020 23:23:08 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 23:23:08] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 23:24:02 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 23:24:04 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/people/_count [status:404 request:0.004s]
+19/12/2020 23:24:04 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/organizations/_count [status:200 request:0.003s]
+19/12/2020 23:24:04 - [                        api.py: 42 -                     index() ]- ERROR - Error while creating new record. Details: 'count'
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 34, in index
+    countPeople, countOrganizations = execute_es_query()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 22, in execute_es_query
+    countPeople, countOrganizations = es.count_recordsES()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 137, in count_recordsES
+    return res_people['count'], res_organizations['count']
+KeyError: 'count'
+19/12/2020 23:24:04 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 23:24:04] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 23:24:21 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 23:24:22 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/people/_count [status:404 request:0.003s]
+19/12/2020 23:24:22 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/organizations/_count [status:200 request:0.005s]
+19/12/2020 23:24:22 - [                        api.py: 42 -                     index() ]- ERROR - Error while creating new record. Details: 'count'
+Traceback (most recent call last):
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 34, in index
+    countPeople, countOrganizations = execute_es_query()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/api.py", line 22, in execute_es_query
+    countPeople, countOrganizations = es.count_recordsES()
+  File "/home/zhenisd/DOCKERS/gb_parliament/code/databases.py", line 139, in count_recordsES
+    return res_people['count'], res_organizations['count']
+KeyError: 'count'
+19/12/2020 23:24:22 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 23:24:22] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 23:24:44 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 23:24:46 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/person/_count [status:200 request:0.004s]
+19/12/2020 23:24:46 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/organizations/_count [status:200 request:0.002s]
+19/12/2020 23:24:46 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 23:24:46] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 23:25:09 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 23:25:12 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/person/_count [status:200 request:0.002s]
+19/12/2020 23:25:12 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/organizations/_count [status:200 request:0.001s]
+19/12/2020 23:25:12 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 23:25:12] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 23:34:41 - [                  _internal.py:113 -                      _log() ]- INFO -  * Running on http://0.0.0.0:5050/ (Press CTRL+C to quit)
+19/12/2020 23:34:48 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/person/_count [status:200 request:0.002s]
+19/12/2020 23:34:48 - [                       base.py:255 -       log_request_success() ]- INFO - POST http://localhost:9200/organizations/_count [status:200 request:0.001s]
+19/12/2020 23:34:48 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 23:34:48] "[37mGET / HTTP/1.1[0m" 200 -
+19/12/2020 23:34:48 - [                  _internal.py:113 -                      _log() ]- INFO - 127.0.0.1 - - [19/Dec/2020 23:34:48] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
